@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 MediaTek Inc.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -34,6 +35,7 @@
 #include <mt-plat/aee.h>
 #include <mtk_gpu_utility.h>
 #include <mt_gpufreq.h>
+#include "mt-plat/mtk_thermal_platform.h"
 
 /* ************************************ */
 /* Definition */

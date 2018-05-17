@@ -207,10 +207,6 @@ extern int bts_cur_temp;
 
 /* extern int thermal_one_shot_handler(int times); */
 
-enum {
-	MTK_THERMAL_SCEN_CALL = 0x1
-};
-
 typedef enum {
 	THERMAL_SENSOR1 = 0,	/* TS1 */
 	THERMAL_SENSOR2 = 1,	/* TS2 */

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 MediaTek Inc.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -31,7 +32,7 @@
 #include "mach/mt_thermal.h"
 #include "mt-plat/mtk_thermal_platform.h"
 #include <linux/uidgid.h>
-#include <tmp_bts.h>
+#include "../../../thermal/mt8173/inc/tmp_bts.h"
 #include <linux/slab.h>
 
 /*=============================================================
@@ -598,10 +599,6 @@ int mtkts_bts_get_hw_temp(void)
 
 	mutex_unlock(&BTS_lock);
 
-
-	if (tsatm_thermal_get_catm_type() == 2)
-		wakeup_ta_algo(TA_CATMPLUS_TTJ);
-
 	bts_cur_temp = t_ret;
 
 	if (t_ret > 40000)	/* abnormal high temp */
@@ -1074,7 +1071,7 @@ static ssize_t mtkts_bts_param_write(struct file *file, const char __user *buffe
 		mtkts_bts_prepare_table(g_RAP_ntc_table);
 
 		ret = count;
-		pr_debug("[mtkts_bts_write] count = %d\n", count);
+		pr_debug("[mtkts_bts_write] count = %ld\n", count);
 		goto error_write;
 	}
 
